@@ -14,8 +14,20 @@ builder.Services
         builder.Configuration.GetSection(ServiceBusOptions.SectionName))
     .Configure<ServiceBusWorkerOptions>(
         builder.Configuration.GetSection(ServiceBusWorkerOptions.SectionName))
-    .AddSingleton<IServiceBusService, ServiceBusService>()   // ← servis
-    .AddHostedService<ServiceBusWorker>();
+    .AddSingleton<IServiceBusService, ServiceBusService>();
+
+builder.Services
+    .Configure<EmailOptions>(
+        builder.Configuration.GetSection(EmailOptions.SectionName))
+    .AddTransient<IEmailService, EmailService>();
+
+builder.Services
+    .AddTransient<CandidateResetPasswordHandler>()
+    .AddTransient<EmployerResetPasswordHandler>()
+    .AddTransient<CandidateVerificationHandler>()
+    .AddTransient<EmployerVerificationHandler>();
+
+builder.Services.AddHostedService<ServiceBusWorker>();
 
 var host = builder.Build();
 host.Run();

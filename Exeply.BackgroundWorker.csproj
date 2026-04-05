@@ -1,21 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk.Worker">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-Exeply.BackgroundWorker-cb99edaf-2533-4c00-9c51-e8cd842dca53</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..</DockerfileContext>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>dotnet-Exeply.BackgroundWorker-cb99edaf-2533-4c00-9c51-e8cd842dca53</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.5.0" />
-    <PackageReference Include="Azure.Identity" Version="1.20.0" />
-    <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.20.1" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.ServiceBus" Version="5.17.0" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.5" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.5.0" />
+		<PackageReference Include="Azure.Identity" Version="1.20.0" />
+		<PackageReference Include="Azure.Messaging.ServiceBus" Version="7.20.1" />
+		<PackageReference Include="MailKit" Version="4.15.1" />
+		<PackageReference Include="Microsoft.Azure.WebJobs.Extensions.ServiceBus" Version="5.17.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.5" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Templates\EmailTemplate.html">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<Content Include="Templates\**">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 </Project>
