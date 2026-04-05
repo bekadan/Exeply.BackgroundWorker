@@ -112,6 +112,8 @@ public class ServiceBusWorker : BackgroundService
         // var order = JsonSerializer.Deserialize<Order>(message.Payload!);
         // await _orderService.ProcessAsync(order, cancellationToken);
 
+
+
         await Task.CompletedTask;
 
         _logger.LogInformation("Mesaj işlendi | MessageId: {Id}", message.MessageId);
