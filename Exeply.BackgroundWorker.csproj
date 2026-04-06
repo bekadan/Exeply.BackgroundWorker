@@ -7,6 +7,7 @@
 		<UserSecretsId>dotnet-Exeply.BackgroundWorker-cb99edaf-2533-4c00-9c51-e8cd842dca53</UserSecretsId>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 		<DockerfileContext>.</DockerfileContext>
+		<Platforms>AnyCPU;x64</Platforms>
 	</PropertyGroup>
 
 	<ItemGroup>
