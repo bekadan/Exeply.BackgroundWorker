@@ -39,8 +39,8 @@ jobs:
       - name: Build and push image to ACR
         uses: docker/build-push-action@v7
         with:
-          context: .
-          file: ${{ env.DOCKERFILE_PATH }}
+          context: ./Exeply.BackgroundWorker
+          file: ./Exeply.BackgroundWorker/Dockerfile
           push: true
           provenance: false
           platforms: linux/amd64
