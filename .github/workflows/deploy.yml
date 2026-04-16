@@ -12,7 +12,7 @@ env:
   CONTAINER_APP_NAME: exeply-emailer
   ACR_NAME: exeplyregistry
   IMAGE_NAME: exeplyproject-emailer
-  DOCKERFILE_PATH: ./Exeply.BackgroundWorker/Dockerfile
+  DOCKERFILE_PATH: ./Dockerfile
   AZURE_LOCATION: westeurope
   ENV_NAME: exeply-api-env
 jobs:
@@ -39,8 +39,8 @@ jobs:
       - name: Build and push image to ACR
         uses: docker/build-push-action@v7
         with:
-          context: ./Exeply.BackgroundWorker
-          file: ./Exeply.BackgroundWorker/Dockerfile
+          context: .
+          file: ./Dockerfile
           push: true
           provenance: false
           platforms: linux/amd64
